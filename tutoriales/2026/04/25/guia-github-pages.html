@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Basic Manual | TheRedWolf Blog</title>
+    <link rel="icon" type="image/png" href="/assets/img/static/favico.png">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/toc.css">
+
+    <meta name="description" content="Descubre como alojar tu propio blog en GitHub Pages. ¡Es totalmenre gratis!">
+    <meta name="author" content="TheRedWolf">
+</head>
+<body>
+
+     <!-- ═══════════════════════════════
+         HEADER
+    ═══════════════════════════════ -->
+<head>
+    <link rel="stylesheet" href="/assets/css/header.css">
+</head>
+<header class="site-header">
+
+    <!-- Logo → inicio -->
+    <a href="/" class="header-logo" title="Inicio">
+        <img src="/assets/img/static/favico.png" alt="TheRedWolf logo">
+    </a>
+
+    <!-- Título y subtítulo centrados -->
+    <div class="header-center">
+        <h1>TheRedWolf Blog</h1>
+        <p><i>"Cada día hay algo nuevo que aprender"</i></p>
+    </div>
+
+    <!-- Enlace Sobre mí arriba derecha -->
+    <a href="/sobre-mi/" class="header-sobre-mi">Sobre mí</a>
+
+</header>
+
+
+    <!-- ═══════════════════════════════
+         LAYOUT PRINCIPAL: sidebar + contenido
+    ═══════════════════════════════ -->
+    <div class="post-layout">
+
+        <!-- ── SIDEBAR ── -->
+        <aside class="post-sidebar">
+            <div class="sidebar-inner">
+                <p class="sidebar-label">// Secciones</p>
+                <nav class="toc" id="toc">
+                    <!-- Generado dinámicamente por JS leyendo h1-h4 del contenido -->
+                </nav>
+            </div>
+        </aside>
+
+        <!-- ── CONTENIDO ── -->
+        <main class="post-main">
+
+            <!-- Cabecera del post: título + fecha -->
+            <div class="post-header-box" id="post-top">
+                <h1 class="post-title-main">GitHub Pages Basic Manual</h1>
+                <span class="post-date">25 de April, 2026</span>
+            </div>
+
+            <!-- Cuerpo renderizado desde Markdown -->
+            <article class="post-content" id="post-content">
+                <h1 id="guía-básica-github-pages-para-alojamiento-de-sitios-web">Guía básica: GitHub Pages para alojamiento de sitios web</h1>
+
+<h2 id="qué-es-github-pages">¿Qué es GitHub Pages?</h2>
+
+<p>GitHub Pages es un servicio gratuito de alojamiento web ofrecido por GitHub que permite publicar sitios web directamente desde un repositorio. Está diseñado principalmente para contenido estático, como páginas hechas con HTML, CSS y JavaScript.</p>
+
+<hr />
+
+<h2 id="a-quién-está-dirigido">¿A quién está dirigido?</h2>
+
+<p>GitHub Pages es ideal para:</p>
+
+<ul>
+  <li>Estudiantes y principiantes en desarrollo web</li>
+  <li>Desarrolladores frontend</li>
+  <li>Personas que quieren crear portafolios personales</li>
+  <li>Proyectos de documentación</li>
+  <li>Blogs técnicos</li>
+  <li>Proyectos open source</li>
+</ul>
+
+<p>No está pensado para aplicaciones complejas que dependan de backend.</p>
+
+<hr />
+
+<h2 id="qué-puedes-hacer-con-github-pages">¿Qué puedes hacer con GitHub Pages?</h2>
+
+<ul>
+  <li>Publicar sitios web estáticos</li>
+  <li>Crear portafolios personales</li>
+  <li>Desplegar documentación técnica</li>
+  <li>Crear blogs (usando generadores como Jekyll o Hugo)</li>
+  <li>Compartir proyectos frontend</li>
+</ul>
+
+<hr />
+
+<h2 id="qué-no-puedes-hacer">¿Qué NO puedes hacer?</h2>
+
+<p>GitHub Pages <strong>NO soporta backend</strong>, lo que significa:</p>
+
+<ul>
+  <li>No puedes ejecutar código del lado del servidor (PHP, Python, Node.js, etc.)</li>
+  <li>No puedes usar bases de datos directamente</li>
+  <li>No puedes crear APIs propias dentro del mismo servicio</li>
+</ul>
+
+<p>Si necesitas backend, debes usar servicios externos (como APIs o servidores propios).</p>
+
+<hr />
+
+<h2 id="requisitos-básicos-para-funcionar">Requisitos básicos para funcionar</h2>
+
+<p>Para que un sitio funcione en GitHub Pages necesitas:</p>
+
+<ul>
+  <li>Un repositorio en GitHub</li>
+  <li>
+    <p>Un archivo principal llamado:</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">index.html</code> (más común)</li>
+      <li>o <code class="language-plaintext highlighter-rouge">index.md</code> (si usas Jekyll)</li>
+    </ul>
+  </li>
+  <li>Archivos estáticos adicionales (CSS, JS, imágenes, etc.)</li>
+</ul>
+
+<hr />
+
+<h2 id="tecnologías-que-puedes-usar">Tecnologías que puedes usar</h2>
+
+<p>GitHub Pages soporta:</p>
+
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+
+<p>También puedes usar:</p>
+
+<ul>
+  <li>Frameworks frontend (React, Vue, etc. — con build previo)</li>
+  <li>
+    <p>Generadores de sitios estáticos como:</p>
+
+    <ul>
+      <li>Jekyll (soporte nativo)</li>
+      <li>Hugo (requiere build previo)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="nota-sobre-el-mapeo">Nota sobre el “mapeo”</h3>
+
+<p>GitHub Pages sirve los archivos directamente desde el repositorio:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/index.html</code> → página principal</li>
+  <li><code class="language-plaintext highlighter-rouge">/about.html</code> → <code class="language-plaintext highlighter-rouge">tusitio/about.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/assets/style.css</code> → recursos estáticos</li>
+</ul>
+
+<hr />
+
+<h2 id="página-de-ejemplo">Página de ejemplo</h2>
+
+<p>Para este ejemplo, vamos a crear una página web, sencilla, con la siguiente estructura y código fuente.</p>
+
+<h3 id="estructura-del-proyecto">Estructura del proyecto</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/TU-REPOSITORIO
+ ├── index.html
+ ├── style.css
+ └── script.js
+</code></pre></div></div>
+
+<h3 id="indexhtml">index.html</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"es"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Mi página en GitHub Pages<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"style.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hola mundo 🌐<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Mi primera página en GitHub Pages<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"saludo()"</span><span class="nt">&gt;</span>Haz clic<span class="nt">&lt;/button&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"script.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="stylecss">style.css</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="n">Arial</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#f4f4f4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="scriptjs">script.js</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">saludo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">¡Funciona JavaScript!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="creación-del-repositorio">Creación del repositorio</h2>
+
+<p>Para crear el repositorio, seguimos los siguientes pasos.</p>
+
+<ol>
+  <li>
+    <p>Entramos a GitHub y creamos nuestro repositorio. Para el nombre del repositorio, usare <code class="language-plaintext highlighter-rouge">ejemplo</code> como nombre. <img src="/assets/img/2026-04-25-guia-github-pages/crear-repositorio.png" alt="Creando el repositorio" /></p>
+  </li>
+  <li>
+    <p>Para la visibilidad del repositorio, seleccionamos la opción <code class="language-plaintext highlighter-rouge">Public</code>, para que sea pública y desactivamos la opción de crear un README automáticamente. <img src="/assets/img/2026-04-25-guia-github-pages/crear-repositorio-opciones.png" alt="Opciones del repositorio" /></p>
+  </li>
+  <li>
+    <p>Hacemos clic en el botón verde <code class="language-plaintext highlighter-rouge">Create repository</code></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="subir-archivos-al-repositorio">Subir archivos al repositorio</h2>
+
+<p>Ahora, para subir nuestro contenido al repositorio, tenemos algunas opciones.</p>
+
+<h3 id="opción-1-desde-terminal-git">Opción 1: Desde terminal (Git)</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Primer commit"</span>
+git branch <span class="nt">-M</span> main
+git remote add origin https://github.com/usuario/repositorio.git
+git push <span class="nt">-u</span> origin main
+</code></pre></div></div>
+
+<h3 id="opción-2-desde-la-página-web">Opción 2: Desde la página web</h3>
+
+<ol>
+  <li>Entramos a nuestro repositorio <img src="/assets/img/2026-04-25-guia-github-pages/subir-archivo.png" alt="Interfaz del repositorio" /></li>
+  <li>Hacemos clic en <code class="language-plaintext highlighter-rouge">uploading an existing file</code></li>
+  <li>Nos llevará a otra página donde podemos subir nuestros archivos. Una vez subidos, debemos darle un nombre al <code class="language-plaintext highlighter-rouge">commit</code> y una descripción. <img src="/assets/img/2026-04-25-guia-github-pages/archivos-subidos.jpg" alt="Subiendo archivos al repositorio" /></li>
+  <li>Damos clic en <code class="language-plaintext highlighter-rouge">Commit changes</code></li>
+</ol>
+
+<hr />
+
+<h2 id="activar-github-pages">Activar GitHub Pages</h2>
+
+<ol>
+  <li>Ir al repositorio <img src="/assets/img/2026-04-25-guia-github-pages/tu-repositorio.jpg" alt="Tu repositorio" /></li>
+  <li>Entrar a <strong>Settings</strong> <img src="/assets/img/2026-04-25-guia-github-pages/settings.jpg" alt="Settings" /></li>
+  <li>Buscar la sección <strong>Pages</strong> <img src="/assets/img/2026-04-25-guia-github-pages/pages.jpg" alt="Pages" /></li>
+  <li>En la sección “Branch”:
+    <ul>
+      <li>Da clic en <code class="language-plaintext highlighter-rouge">none</code>y cambialo a <code class="language-plaintext highlighter-rouge">main</code></li>
+      <li>Asegurate de tener selecionado el directorio <code class="language-plaintext highlighter-rouge">/root</code> <img src="/assets/img/2026-04-25-guia-github-pages/seleccion-branch.jpg" alt="Configuración" /></li>
+    </ul>
+  </li>
+  <li>Para guardar los cambios, dale clic a <code class="language-plaintext highlighter-rouge">save</code></li>
+</ol>
+
+<p>Después de unos segundos/minutos, tu sitio estará disponible en:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://usuario.github.io/repositorio/
+</code></pre></div></div>
+<hr />
+
+<p><img src="/assets/img/2026-04-25-guia-github-pages/pagina-cargada.jpg" alt="Página activada" /></p>
+
+<p>En mi ejemplo, aparece como <code class="language-plaintext highlighter-rouge">https://theredwolf-dev.github.io/ejemplo/</code></p>
+
+<p><img src="/assets/img/2026-04-25-guia-github-pages/browser.jpg" alt="Browser" />
+Página desde el navegador</p>
+
+<hr />
+
+<h2 id="resultado-esperado">Resultado esperado</h2>
+
+<p>Una página web simple que:</p>
+<ul>
+  <li>Muestra un título</li>
+  <li>Tiene estilos básicos</li>
+  <li>Ejecuta JavaScript al hacer clic</li>
+</ul>
+
+<hr />
+
+<h2 id="siguientes-pasos">Siguientes pasos</h2>
+
+<p>GitHub Pages es una excelente herramienta para comenzar en el desarrollo web y publicar proyectos sin costo. Es simple, rápido y suficiente para la mayoría de proyectos frontend, aunque con limitaciones importantes en backend que deben considerarse desde el inicio.</p>
+
+<p>Aunque en este ejemplo usamos HTML, CSS y JavaScript, existen herramientas más avanzadas para la creación de sitios estáticos como Jekyll y Hugo, que facilitan la organización y generación de contenido de forma más eficiente.</p>
+
+<p>Además, es posible mejorar la presentación del sitio mediante dominios personalizados y servicios como Cloudflare. Sin embargo, en este punto es donde termina lo completamente gratuito, ya que adquirir un dominio propio implica un costo.</p>
+
+<p>En próximos artículos veremos cómo usar Jekyll y Hugo, así como la configuración de dominios personalizados para llevar tu proyecto a un nivel más profesional.</p>
+
+<p>Nos vemos sin antes recordarles que: ¡Cada día hay algo nuevo que aprender!</p>
+
+            </article>
+
+            <script data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="theredwolf.dev"
+        data-description="Support me on Buy me a coffee!"
+        data-message="Si mi contenido te fue útil, ¡invítame un café!"
+        data-color="#d95eff"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18">
+</script>
+
+
+
+        </main>
+
+    </div>
+
+     <!-- ═══════════════════════════════
+         FOOTER
+    ═══════════════════════════════ -->
+<head>
+    <link rel="stylesheet" href="/assets/css/footer.css">
+</head>
+<footer class="site-footer">
+    <p class="site-footer__copy">&copy; 2026 TheRedWolf. Todos los derechos reservados.</p>
+    <p class="site-footer__tagline">Contenido con fines educativos. El hacking mostrado es exclusivamente ético y legal.</p>
+</footer>
+
+    <script src="/assets/js/codeblock.js"></script>
+    <script src="/assets/js/toc.js"></script>
+
+</body>
+</html>

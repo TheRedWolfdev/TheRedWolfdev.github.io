@@ -1,0 +1,127 @@
+/* ================================================
+   SYNTAX.CSS — Tema Monokai adaptado para Rouge
+   Syntax highlighting para bloques de código Jekyll
+   Compatible con la paleta de TheRedWolf Blog
+   ================================================ */
+
+/* Contenedor general de Rouge */
+.highlight {
+    background: transparent;
+    margin: 0;
+}
+
+.highlight pre {
+    margin: 0;
+}
+
+/* ── BASE ──────────────────────────────────────── */
+
+.highlight .n,          /* Nombre genérico */
+.highlight .nx  { color: #f8f8f2; }     /* Nombre otro */
+
+/* ── KEYWORDS ──────────────────────────────────── */
+
+.highlight .k,          /* Keyword */
+.highlight .kn,         /* Keyword namespace (import, from) */
+.highlight .kd,         /* Keyword declaración (def, class, var, let) */
+.highlight .kc,         /* Keyword constante (True, False, None) */
+.highlight .kr,         /* Keyword reservada */
+.highlight .kt          /* Keyword tipo */
+{ color: #ff2e63; font-style: italic; }  /* neon-red */
+
+/* ── OPERADORES ────────────────────────────────── */
+
+.highlight .o,          /* Operador */
+.highlight .ow          /* Operador palabra (and, or, in, not) */
+{ color: #ff5dfc; }     /* neon-pink */
+
+/* ── STRINGS ───────────────────────────────────── */
+
+.highlight .s,          /* String genérico */
+.highlight .s1,         /* String comilla simple */
+.highlight .s2,         /* String comilla doble */
+.highlight .sb,         /* String backtick */
+.highlight .sc,         /* String char */
+.highlight .sd,         /* String docstring */
+.highlight .se,         /* String escape */
+.highlight .si,         /* String interpolado */
+.highlight .ss,         /* String símbolo */
+.highlight .sx          /* String other */
+{ color: #ffbd2e; }     /* amarillo Monokai */
+
+/* ── NÚMEROS ───────────────────────────────────── */
+
+.highlight .mi,         /* Número entero */
+.highlight .mf,         /* Número float */
+.highlight .mh,         /* Número hexadecimal */
+.highlight .mo,         /* Número octal */
+.highlight .m,          /* Número genérico */
+.highlight .il          /* Número entero largo */
+{ color: #d95eff; }     /* neon-purple */
+
+/* ── COMENTARIOS ───────────────────────────────── */
+
+.highlight .c,          /* Comentario genérico */
+.highlight .c1,         /* Comentario línea */
+.highlight .cm,         /* Comentario multilinea */
+.highlight .cs,         /* Comentario especial */
+.highlight .cp          /* Comentario preprocesador */
+{ color: #6a6a8a; font-style: italic; }
+
+/* ── FUNCIONES Y MÉTODOS ───────────────────────── */
+
+.highlight .nf,         /* Nombre función */
+.highlight .fm          /* Nombre método */
+{ color: #00ff9d; }     /* neon-green */
+
+/* ── CLASES Y TIPOS ────────────────────────────── */
+
+.highlight .nc,         /* Nombre clase */
+.highlight .nn          /* Nombre namespace */
+{ color: #00eaff; }     /* neon-blue */
+
+/* ── DECORADORES ───────────────────────────────── */
+
+.highlight .nd          /* Decorador (@app.route, @staticmethod) */
+{ color: #ff5dfc; font-style: italic; } /* neon-pink */
+
+/* ── VARIABLES Y ATRIBUTOS ─────────────────────── */
+
+.highlight .na,         /* Atributo */
+.highlight .nb          /* Builtin (print, len, range…) */
+{ color: #00eaff; }     /* neon-blue */
+
+.highlight .nv,         /* Variable */
+.highlight .vc,         /* Variable clase */
+.highlight .vg,         /* Variable global */
+.highlight .vi          /* Variable instancia */
+{ color: #f8f8f2; }
+
+/* ── PUNTUACIÓN Y ESTRUCTURA ───────────────────── */
+
+.highlight .p           /* Puntuación ( ) [ ] { } , ; */
+{ color: #a0a0b0; }
+
+/* ── ETIQUETAS HTML/XML ────────────────────────── */
+
+.highlight .nt,         /* Nombre tag */
+.highlight .ni          /* Nombre entidad */
+{ color: #ff2e63; }     /* neon-red */
+
+.highlight .na          /* Atributo de tag */
+{ color: #00ff9d; }     /* neon-green */
+
+/* ── DIFF ──────────────────────────────────────── */
+
+.highlight .gi { color: #00ff9d; background: rgba(0, 255, 157, 0.08); } /* línea añadida */
+.highlight .gd { color: #ff2e63; background: rgba(255, 46, 99, 0.08); } /* línea eliminada */
+.highlight .gu { color: #d95eff; font-weight: bold; }                   /* encabezado diff */
+
+/* ── ERRORES ───────────────────────────────────── */
+
+.highlight .err { color: #ff2e63; background: rgba(255, 46, 99, 0.15); border-radius: 2px; }
+
+/* ── TEXTO GENÉRICO ────────────────────────────── */
+
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: bold; }

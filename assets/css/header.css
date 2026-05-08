@@ -1,0 +1,81 @@
+/* =======================
+   HEADER (RED vs BLUE)
+======================= */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem 1.8rem;
+    background: linear-gradient(
+        135deg,
+        rgba(87, 15, 15, 0.699),
+        rgba(0, 23, 73, 0.616)
+    );
+    border-bottom: 1px solid rgba(180, 180, 180, 0.18);
+    position: relative;
+}
+
+/* Logo (izquierda) */
+.header-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.header-logo img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(255, 46, 99, 0.5));
+    border-radius: 50%;
+}
+
+.header-logo:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+
+/* Título + subtítulo (centro) */
+.header-center {
+    flex: 1;
+    text-align: center;
+}
+
+.header-center h1 {
+    font-size: 2.75rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #ff2e2e;
+}
+
+.header-center p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: rgba(21, 242, 250, 0.85);
+    letter-spacing: 1px;
+}
+
+/* Sobre mí (derecha) */
+.header-sobre-mi {
+    flex-shrink: 0;
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    transition: all 0.25s ease;
+    align-self: flex-start; /* arriba */
+    margin-top: 0;
+}
+
+.header-sobre-mi:hover {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+    background: rgba(0, 234, 255, 0.07);
+    box-shadow: 0 0 10px rgba(0, 234, 255, 0.2);
+}

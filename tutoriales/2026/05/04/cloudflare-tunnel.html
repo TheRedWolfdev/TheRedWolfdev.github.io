@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudflare Tunnel, expón tu localhost a Internet | TheRedWolf Blog</title>
+    <link rel="icon" type="image/png" href="/assets/img/static/favico.png">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/toc.css">
+
+    <meta name="description" content="¿Quieres poner a prueba tus proyectos web con alojamiento local? Intentalo con Cloudflare Tunnel">
+    <meta name="author" content="TheRedWolf">
+</head>
+<body>
+
+     <!-- ═══════════════════════════════
+         HEADER
+    ═══════════════════════════════ -->
+<head>
+    <link rel="stylesheet" href="/assets/css/header.css">
+</head>
+<header class="site-header">
+
+    <!-- Logo → inicio -->
+    <a href="/" class="header-logo" title="Inicio">
+        <img src="/assets/img/static/favico.png" alt="TheRedWolf logo">
+    </a>
+
+    <!-- Título y subtítulo centrados -->
+    <div class="header-center">
+        <h1>TheRedWolf Blog</h1>
+        <p><i>"Cada día hay algo nuevo que aprender"</i></p>
+    </div>
+
+    <!-- Enlace Sobre mí arriba derecha -->
+    <a href="/sobre-mi/" class="header-sobre-mi">Sobre mí</a>
+
+</header>
+
+
+    <!-- ═══════════════════════════════
+         LAYOUT PRINCIPAL: sidebar + contenido
+    ═══════════════════════════════ -->
+    <div class="post-layout">
+
+        <!-- ── SIDEBAR ── -->
+        <aside class="post-sidebar">
+            <div class="sidebar-inner">
+                <p class="sidebar-label">// Secciones</p>
+                <nav class="toc" id="toc">
+                    <!-- Generado dinámicamente por JS leyendo h1-h4 del contenido -->
+                </nav>
+            </div>
+        </aside>
+
+        <!-- ── CONTENIDO ── -->
+        <main class="post-main">
+
+            <!-- Cabecera del post: título + fecha -->
+            <div class="post-header-box" id="post-top">
+                <h1 class="post-title-main">Cloudflare Tunnel, expón tu localhost a Internet</h1>
+                <span class="post-date">04 de May, 2026</span>
+            </div>
+
+            <!-- Cuerpo renderizado desde Markdown -->
+            <article class="post-content" id="post-content">
+                <h1 id="cloudflare-tunnel-expón-tu-localhost-a-internet">Cloudflare Tunnel: Expón tu localhost a Internet</h1>
+
+<p>Cuando desarrollamos una API o una aplicación web, es común que necesitemos hacerla accesible desde Internet para realizar pruebas, compartir avances o integrar servicios externos.</p>
+
+<p>Si el proyecto es únicamente Front-End, el problema es sencillo de resolver: plataformas como GitHub Pages permiten desplegar sitios estáticos de forma rápida y gratuita.</p>
+
+<p>Sin embargo, la situación cambia cuando necesitamos un Back-End. En este caso, ya no basta con un hosting estático, y las opciones gratuitas suelen ser limitadas o implican configuraciones más complejas.</p>
+
+<p>Aquí es donde entra una alternativa interesante: utilizar nuestra propia máquina como servidor.</p>
+
+<h1 id="cloudflare-tunnel">Cloudflare Tunnel</h1>
+
+<p>Cloudflare Tunnel es un servicio gratuito y seguro que permite exponer aplicaciones locales (como servidores web, APIs o dashboards) a Internet sin necesidad de abrir puertos en el router ni configurar port forwarding.</p>
+
+<p>En lugar de exponer directamente tu red, Cloudflare crea un túnel seguro desde tu máquina hacia su infraestructura. A partir de ahí, actúa como un proxy que recibe las solicitudes desde Internet y las redirige a tu aplicación local.</p>
+
+<p>En términos simples:</p>
+
+<ul>
+  <li>Tu aplicación sigue corriendo en localhost</li>
+  <li>Cloudflare establece una conexión saliente segura</li>
+  <li>Los usuarios acceden a tu servicio mediante una URL pública gestionada por Cloudflare</li>
+</ul>
+
+<p>Esto no solo simplifica la configuración, sino que también mejora la seguridad, ya que tu red no queda expuesta directamente.</p>
+
+<h2 id="ventajas-de-cloudflare-tunnel">Ventajas de Cloudflare Tunnel</h2>
+
+<p>La principal ventaja de usar Cloudflare Tunnel es su facilidad de uso. Basta con ejecutar unos cuantos comandos para exponer tu aplicación, evitando la necesidad de abrir puertos o configurar el router doméstico.</p>
+
+<p>Otra ventaja importante es la seguridad. El túnel que se establece hacia la infraestructura de Cloudflare está completamente cifrado, lo que añade una capa de confidencialidad al tráfico de datos.
+<strong>Nota:</strong> esto protege el canal de comunicación, pero no asegura tu aplicación. Vulnerabilidades como XSS, LFI o fallos en la configuración del sistema siguen siendo responsabilidad del desarrollador.</p>
+
+<p>Además, permite trabajar con dominios y subdominios personalizados, así como contar con HTTPS automático, proporcionando certificados válidos sin configuraciones adicionales.</p>
+
+<h2 id="desventajas-de-cloudflare-tunnel">Desventajas de Cloudflare Tunnel</h2>
+
+<p>Una de las principales desventajas es que tu proyecto depende completamente de tu máquina y tu conexión a Internet. Si necesitas que el servicio esté disponible 24/7, tu equipo también deberá estar encendido todo el tiempo, lo cual no es ideal para proyectos más serios.</p>
+
+<p>Otra limitación importante es que no está pensado para cargas altas. Si tu aplicación requiere mucho procesamiento o recibe tráfico constante, tu propia máquina puede convertirse en el cuello de botella e incluso colapsar.</p>
+
+<p>Además, al depender de un intermediario como Cloudflare, también existe una dependencia externa: cualquier problema en el servicio afectará directamente la disponibilidad de tu aplicación.</p>
+
+<h1 id="instalación-de-cloudflare-tunnel">Instalación de Cloudflare Tunnel</h1>
+
+<p>Ahora bien, vamos a instalar el software de Cloudflare llamado <code class="language-plaintext highlighter-rouge">Cloudflared</code>; sí solo cambia por la <code class="language-plaintext highlighter-rouge">d</code> al final. La instalación va a depender de tu Sistema Operativo, si lo deseas, aquí te dejo la <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation/">guía oficial de instalación de cloudflared</a> proporcionada por Cloudflare. Yo, por mi parte, voy a continuar la instalación para sistemas Ubuntu.</p>
+
+<h2 id="comandos-de-instalación">Comandos de instalación</h2>
+
+<p>A continuación se mostrarán los comandos necesarios para la instalación de <code class="language-plaintext highlighter-rouge">Cloudflared</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-fsSL</span> https://pkg.cloudflare.com/cloudflare-main.gpg | <span class="nb">sudo tee</span> /usr/share/keyrings/cloudflare-main.gpg <span class="o">&gt;</span>/dev/null
+<span class="nb">echo</span> <span class="s2">"deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared </span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/cloudflared.list
+<span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> cloudflared 
+</code></pre></div></div>
+<h3 id="explicación-de-los-comandos">Explicación de los comandos</h3>
+
+<h4 id="descargar-e-instalar-la-clave-gpg-del-repositorio">Descargar e instalar la clave GPG del repositorio</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-fsSL</span> https://pkg.cloudflare.com/cloudflare-main.gpg | <span class="nb">sudo tee</span> /usr/share/keyrings/cloudflare-main.gpg <span class="o">&gt;</span>/dev/null
+</code></pre></div></div>
+
+<p>Este comando descarga la clave GPG oficial de Cloudflare y la guarda en el sistema.</p>
+
+<p><code class="language-plaintext highlighter-rouge">curl -fsSL</code>: descarga el archivo de forma silenciosa y segura
+<code class="language-plaintext highlighter-rouge">| sudo tee ...</code>: guarda el contenido en /usr/share/keyrings/ con permisos de administrador
+<code class="language-plaintext highlighter-rouge">&gt;/dev/null</code>: evita mostrar salida en pantalla</p>
+
+<p>La clave GPG permite verificar que los paquetes instalados provienen realmente de Cloudflare y no han sido alterados.</p>
+
+<h4 id="agregar-el-repositorio-oficial-de-cloudflared">Agregar el repositorio oficial de cloudflared</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared </span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/cloudflared.list
+</code></pre></div></div>
+
+<p>Este comando añade el repositorio oficial al sistema.</p>
+
+<p><code class="language-plaintext highlighter-rouge">echo "deb ..."</code>: define la fuente del repositorio
+<code class="language-plaintext highlighter-rouge">signed-by=...</code>: indica qué clave usar para validar los paquetes
+<code class="language-plaintext highlighter-rouge">$(lsb_release -cs)</code>: inserta automáticamente el nombre de tu versión de Ubuntu (por ejemplo: <code class="language-plaintext highlighter-rouge">focal</code>, <code class="language-plaintext highlighter-rouge">jammy</code>)
+<code class="language-plaintext highlighter-rouge">tee ...cloudflared.list</code>: guarda el repositorio en la lista de fuentes de APT</p>
+
+<p>Permite que apt pueda encontrar e instalar cloudflared directamente desde los servidores oficiales.</p>
+
+<h4 id="actualizar-la-lista-de-paquetes">Actualizar la lista de paquetes</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+</code></pre></div></div>
+
+<p>Este comando actualiza la lista de paquetes disponibles, incluyendo el nuevo repositorio que acabas de agregar. Sin esto, el sistema no sabría que existe cloudflared.</p>
+
+<h4 id="instalar-cloudflared">Instalar cloudflared</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> cloudflared
+</code></pre></div></div>
+
+<p>Este comando instala la herramienta en tu sistema.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-y</code>: acepta automáticamente las confirmaciones</p>
+
+<p>Una vez terminado, ya puedes usar cloudflared desde la terminal.</p>
+
+<h4 id="verificar-instalación">Verificar instalación</h4>
+
+<p>Para verificar si tu instalación funciona correctamente, puedes usar el siguiente comando.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cloudflared <span class="nt">--version</span>
+</code></pre></div></div>
+
+<p>En caso que no haya funcionado, verifica que hayas realizado bien los pasos de instalación antes de continuar con el tutorial.</p>
+
+<h1 id="creación-del-túnel">Creación del túnel</h1>
+
+<p>Antes de crear tu primer túnel, es importante cumplir con dos requisitos básicos:</p>
+
+<ol>
+  <li>Estar ubicado en el directorio de tu proyecto web</li>
+  <li>Tener un servicio <strong>HTTP local</strong> en ejecución</li>
+</ol>
+
+<p>Esto se debe a que el túnel va a redirigir el tráfico hacia un servicio que ya debe estar activo en tu máquina.</p>
+
+<h2 id="levantar-un-servidor-http-local">Levantar un servidor HTTP local</h2>
+
+<p>Para este ejemplo, utilizaremos Python, ya que incluye un modulo de servidor HTTP simple integrado.</p>
+
+<p>Puedes iniciarlo con el siguiente comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> http.server 8080
+</code></pre></div></div>
+
+<p>Con este comando levantamos un servicio HTTP en nuestro directorio actual de trabajo por el puerto <code class="language-plaintext highlighter-rouge">8080</code>, puedes elegir otro puerto pero ten en cuenta que deberás usar ese mismo puerto en el siguiente comando. Con nuestro servicio corriendo, vamos a activar el túnel. Para ello ejecutamos el soguiente comando.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cloudflared tunnel <span class="nt">--url</span> http:localhost:8080
+</code></pre></div></div>
+<p><strong>Nota:</strong> En caso que hayas elegido otro puerto, cambia el puerto <code class="language-plaintext highlighter-rouge">8080</code> por el puerto que elegiste.</p>
+
+<p>Una vez que ejecutes el comando, Clouadflered te entregará en la terminal una URL pública con el que podrás entrar a tu proyecto.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://random-subdomain.trycloudflare.com
+</code></pre></div></div>
+<p>Puedes abrir tu página desde el navegador y compartir tu URL para que otras personas lo vean.</p>
+
+<p>```md id=”g3uxlc”</p>
+<h1 id="conclusión">Conclusión</h1>
+
+<p>Ahora ya sabes cómo exponer un servicio local a Internet utilizando :contentReference[oaicite:0]{index=0} Tunnel. Con esta herramienta puedes compartir proyectos, APIs o páginas web de forma rápida y segura sin necesidad de abrir puertos en tu router.</p>
+
+<p>Este tipo de solución es ideal para pruebas, demostraciones, desarrollo web e incluso pequeños laboratorios personales. Sin embargo, recuerda que el servicio depende completamente de tu máquina local; si tu equipo se apaga o pierde conexión a Internet, tu página dejará de estar disponible.</p>
+
+<p>Aun así, Cloudflare Tunnel ofrece muchas más posibilidades. Es posible crear túneles persistentes, utilizar dominios personalizados, configurar subdominios e incluso mantener servicios más estables y profesionales.</p>
+
+<p>Pero eso lo veremos en el próximo blog.</p>
+
+<p>En la siguiente parte aprenderemos a:</p>
+
+<ul>
+  <li>Configurar un dominio personalizado</li>
+  <li>Crear túneles persistentes</li>
+  <li>Mantener servicios activos</li>
+  <li>Automatizar el inicio del túnel en Linux</li>
+</ul>
+
+<p>Así que mantente al tanto, porque pronto estará disponible.</p>
+
+<p>Me despido sin antes recordarles que:</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Cada día hay algo nuevo que aprender</code></p>
+</blockquote>
+
+            </article>
+
+            <script data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="theredwolf.dev"
+        data-description="Support me on Buy me a coffee!"
+        data-message="Si mi contenido te fue útil, ¡invítame un café!"
+        data-color="#d95eff"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18">
+</script>
+
+
+
+        </main>
+
+    </div>
+
+     <!-- ═══════════════════════════════
+         FOOTER
+    ═══════════════════════════════ -->
+<head>
+    <link rel="stylesheet" href="/assets/css/footer.css">
+</head>
+<footer class="site-footer">
+    <p class="site-footer__copy">&copy; 2026 TheRedWolf. Todos los derechos reservados.</p>
+    <p class="site-footer__tagline">Contenido con fines educativos. El hacking mostrado es exclusivamente ético y legal.</p>
+</footer>
+
+    <script src="/assets/js/codeblock.js"></script>
+    <script src="/assets/js/toc.js"></script>
+
+</body>
+</html>
