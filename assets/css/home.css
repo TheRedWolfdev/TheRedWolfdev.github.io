@@ -1,0 +1,51 @@
+/* =======================
+   CONTENIDO PRINCIPAL
+======================= */
+main {
+    flex: 1;
+    width: 1200px;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+section {
+    width: 1152px;
+    background: var(--bg-card);
+    padding: 32px;
+    border-radius: 16px;
+    border: 2px solid rgb(102, 22, 139);
+    color: var(--neon-pink);
+    font-size: 1.35rem;
+    box-sizing: border.box;
+}
+
+/* =======================
+   POSTS EN HOME
+======================= */
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.post-preview {
+    padding: 1.1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-preview h3 a {
+    color: var(--neon-green);
+    text-decoration: none;
+    font-size: 1.17rem;
+}
+
+.post-preview h3 a:hover {
+    text-decoration: underline;
+}
+
+.post-preview p {
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}

@@ -1,0 +1,68 @@
+/* ── SIDEBAR ─────────────────────────────────── */
+
+.post-sidebar {
+    flex-shrink: 0;
+    width: 300px;
+    position: sticky;
+    top: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.sidebar-inner {
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(180, 180, 180, 0.18);
+    border-radius: 0;
+    padding: 0.8rem 1.2rem 0.8rem 0;
+}
+
+.sidebar-label {
+    font-size: 0.75rem;
+    color: var(--neon-green);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+/* Lista del TOC */
+.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.toc-item a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+
+.toc-item a:hover,
+.toc-item a.active {
+    color: var(--neon-green);
+    border-left-color: var(--neon-green);
+    background: rgba(0, 255, 157, 0.07);
+}
+
+/* Indentación por nivel */
+.toc-h1 a { padding-left: 0.5rem; }
+.toc-h2 a { padding-left: 1.0rem; font-size: 0.80rem; }
+.toc-h3 a { padding-left: 1.6rem; font-size: 0.78rem; color: #999; }
+.toc-h4 a { padding-left: 2.2rem; font-size: 0.75rem; color: #777; }
+
+.toc-empty {
+    font-size: 0.78rem;
+    color: #555;
+    font-style: italic;
+}

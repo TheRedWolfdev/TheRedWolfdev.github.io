@@ -1,0 +1,283 @@
+/* ================================================
+   POST.CSS — Estilos exclusivos para layout de post
+   Depende de las variables definidas en styles.css
+   ================================================ */
+
+
+/* ── LAYOUT SIDEBAR + CONTENIDO ──────────────── */
+
+/* =======================
+   RESET BÁSICO
+======================= */
+
+.post-layout {
+    display: flex;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+    gap: 0;
+    align-items: flex-start;
+    border-top: 1px solid rgba(180, 180, 180, 0.18);
+    padding-top: 2rem;
+    margin-top: 0;
+}
+
+/* ── CONTENIDO PRINCIPAL ─────────────────────── */
+
+.post-main {
+    flex: 1;
+    min-width: 0;
+    padding-left: 1.2rem;
+    padding-right: 2.5rem;
+}
+
+/* Recuadro del título */
+.post-header-box {
+    background: var(--bg-card);
+    border: 2px solid rgb(102, 22, 139);
+    border-radius: 12px;
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 1.8rem;
+}
+
+.post-title-main {
+    color: var(--neon-purple);
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    text-shadow: 0 0 18px rgba(217, 94, 255, 0.35);
+}
+
+
+/* ── CONTENIDO MARKDOWN ──────────────────────── */
+
+.post-content {
+    background: transparent;
+    border: none;
+    padding: 0 0 2rem 0;
+    line-height: 1.85;
+}
+
+/* H1 dentro del contenido */
+.post-content h1 {
+    color: var(--neon-purple);
+    font-size: 1.5rem;
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(217, 94, 255, 0.25);
+    text-shadow: 0 0 12px rgba(217, 94, 255, 0.3);
+}
+
+/* Párrafos */
+.post-content p {
+    color: var(--text-main);
+    margin-bottom: 3rem;
+    font-size: 1rem;
+}
+
+/* Línea horizontal */
+.post-content hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+}
+
+/* Links */
+.post-content a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 234, 255, 0.3);
+    transition: color 0.2s, border-color 0.2s;
+}
+
+
+/* ── SIDEBAR ─────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap');
+
+.post-sidebar {
+    flex-shrink: 0;
+    width: 320px;
+    position: sticky;
+    top: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.wolf-sidebar {
+    position: relative;
+    padding: 1.5rem 0.5rem 1.2rem;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.wolf-sidebar::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(217,94,255,0.5) 30%, rgba(0,234,255,0.5) 70%, transparent);
+}
+
+.corner-tl, .corner-br {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
+.corner-tl { top: 0; left: 0; border-top: 2px solid var(--neon-purple); border-left: 2px solid var(--neon-purple); }
+.corner-br { bottom: 0; right: 15px; border-bottom: 2px solid var(--neon-blue); border-right: 2px solid var(--neon-blue); }
+
+/* Foto con anillo animado */
+.profile-frame {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.2rem;
+}
+
+.profile-frame::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(var(--neon-purple), var(--neon-blue), var(--neon-green), var(--neon-red), var(--neon-purple));
+    animation: sidebar-spin 4s linear infinite;
+    z-index: 0;
+}
+
+@keyframes sidebar-spin { to { transform: rotate(360deg); } }
+
+.profile-img-wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    overflow: hidden;
+}
+
+.profile-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Textos */
+.tag-line {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--neon-green);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.4rem;
+    opacity: 0.8;
+}
+
+.wolf-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+}
+
+.wolf-handle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--neon-purple);
+    text-align: center;
+    margin-bottom: 1.4rem;
+    text-shadow: 0 0 8px rgba(217,94,255,0.5);
+}
+
+.sidebar-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(217,94,255,0.4), rgba(0,234,255,0.4), transparent);
+    margin: 0 0.5rem 1.2rem;
+}
+
+/* Filas de info */
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.5rem 0.4rem;
+    border-radius: 6px;
+    margin-bottom: 0.3rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.info-row:hover { background: rgba(217,94,255,0.07); }
+
+.info-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.icon-mail { background: rgba(0,234,255,0.1); color: var(--neon-blue); border: 1px solid rgba(0,234,255,0.25); }
+.icon-ig   { background: rgba(255,93,252,0.1); color: var(--neon-pink); border: 1px solid rgba(255,93,252,0.25); }
+.icon-gh   { background: rgba(217,94,255,0.1); color: var(--neon-purple); border: 1px solid rgba(217,94,255,0.25); }
+.icon-li   { background: rgba(0,255,157,0.1);  color: var(--neon-green); border: 1px solid rgba(0,255,157,0.25); }
+
+.info-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info-text span {
+    display: block;
+    font-size: 0.6rem;
+    color: #666;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Botones de redes */
+.social-row {
+    margin-top: 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.social-btn:hover { transform: translateY(-2px); }
+
+.s-ig   { background: rgba(255,93,252,0.12); color: var(--neon-pink);   border: 1px solid rgba(255,93,252,0.3); }
+.s-gh   { background: rgba(217,94,255,0.12); color: var(--neon-purple); border: 1px solid rgba(217,94,255,0.3); }
+.s-li   { background: rgba(0,255,157,0.12);  color: var(--neon-green);  border: 1px solid rgba(0,255,157,0.3); }
+.s-mail { background: rgba(0,234,255,0.12);  color: var(--neon-blue);   border: 1px solid rgba(0,234,255,0.3); }
+
+.s-ig:hover   { box-shadow: 0 4px 14px rgba(255,93,252,0.35); }
+.s-gh:hover   { box-shadow: 0 4px 14px rgba(217,94,255,0.35); }
+.s-li:hover   { box-shadow: 0 4px 14px rgba(0,255,157,0.35); }
+.s-mail:hover { box-shadow: 0 4px 14px rgba(0,234,255,0.35); }

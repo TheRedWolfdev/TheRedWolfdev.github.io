@@ -1,0 +1,39 @@
+/* =======================
+   RESET BÁSICO
+======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+/* =======================
+   VARIABLES DE COLOR
+======================= */
+:root {
+    --bg-dark: #0a0a0f;
+    --bg-card: #12121a;
+
+    --neon-red: #ff2e63;
+    --neon-green: #00ff9d;
+    --neon-blue: #00eaff;
+    --neon-purple: #d95eff;
+    --neon-pink: #ff5dfc;
+    --neon-yellow: #fcec61;
+
+    --text-main: #e5e5e5;
+    --text-muted: #c4c3c3;
+}
+
+/* =======================
+   BODY GENERAL
+======================= */
+body {
+    background: rgb(13, 13, 34);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
